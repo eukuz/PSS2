@@ -4,6 +4,6 @@
 
 #ifndef HW2_ACCESS_H
 #define HW2_ACCESS_H
-enum access { green, yellow, red, no_level};
+enum access {  no_level, green, yellow, red};
 
 #endif //HW2_ACCESS_H

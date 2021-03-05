@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class Professor : User {
+class Professor : public User {
 public:
     Professor(const string &firstName, const string &lastName, access accessType, int favouriteNumber,
               const string &subject);

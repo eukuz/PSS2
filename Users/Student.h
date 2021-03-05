@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class Student: User {
+class Student: public User {
 
 public:
     int yearOfEducation;

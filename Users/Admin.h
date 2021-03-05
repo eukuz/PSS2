@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class Admin: User {
+class Admin: public User {
 public:
     bool lovesLinux;
     void SetAcces(User &u, access accessType);

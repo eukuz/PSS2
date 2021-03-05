@@ -3,5 +3,5 @@
 //
 
 #include "ClassRoom.h"
-ClassRoom::ClassRoom(int amountOfPlaces, int roomNumber, access accessLvl, bool isThereAProjector) : Room(
-        amountOfPlaces, roomNumber, accessLvl), isThereAProjector(isThereAProjector) {}
+ClassRoom::ClassRoom(int amountOfPlaces, access accessLvl, bool isThereAProjector) : Room(
+        amountOfPlaces, accessLvl), isThereAProjector(isThereAProjector) {}

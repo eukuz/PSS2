@@ -3,6 +3,10 @@
 //
 
 #include "Room.h"
+int Room::roomNumberIncrement =0;
+Room::Room(int amountOfPlaces, access accessLvl) : amountOfPlaces(amountOfPlaces),
+                                                                   roomNumber(roomNumberIncrement++), accessLvl(accessLvl) {}
 
-Room::Room(int amountOfPlaces, int roomNumber, access accessLvl) : amountOfPlaces(amountOfPlaces),
-                                                                   roomNumber(roomNumber), accessLvl(accessLvl) {}
+int Room::getNumber() {
+    return roomNumber;
+}

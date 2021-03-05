@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class LabEmployee : User {
+class LabEmployee : public User {
 public:
     string LabName;
     int yearsOfExperience;

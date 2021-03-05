@@ -8,7 +8,7 @@
 
 #include "User.h"
 
-class Director: User {
+class Director: public User {
 
 public:
     string petName;

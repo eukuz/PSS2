@@ -9,14 +9,18 @@
 using namespace std;
 
 class Room {
-public:
-    int amountOfPlaces;
+private:
     int roomNumber;
-    access accessLvl;
 
-    Room(int amountOfPlaces, int roomNumber, access accessLvl);
+public:
+    static int roomNumberIncrement;
+    int amountOfPlaces;
+    access accessLvl;
+    int getNumber();
+    Room(int amountOfPlaces, access accessLvl);
 
 };
+
 
 
 #endif //HW2_ROOM_H

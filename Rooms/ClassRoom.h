@@ -8,9 +8,9 @@
 
 #include "Room.h"
 
-class ClassRoom: Room {
+class ClassRoom: public Room {
 public:
-    ClassRoom(int amountOfPlaces, int roomNumber, access accessLvl, bool isThereAProjector);
+    ClassRoom(int amountOfPlaces, access accessLvl, bool isThereAProjector);
 
 public:
     bool isThereAProjector;
