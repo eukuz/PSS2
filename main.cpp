@@ -14,12 +14,14 @@ using namespace std;
 #include "Rooms/ClassRoom.h"
 #include "Rooms/ConferenceRoom.h"
 
-void voiceOverAccess(User user, Room room) {
+void
+voiceOverAccess(User user, Room room) { // auxiliary function that outputs the TryEnter feature in the convenient format
     cout << user.firstName + " " + user.lastName + (user.TryEnter(room) ? " Enters room" : " Cannot enter room")
             + " " + to_string(room.getNumber()) + "\n";
 }
 
-void GenerateUsers(vector<User> &users) {
+void
+generateUsers(vector<User> &users) { // auxiliary function for generating a list of users due to the task requirements
 
     vector<string> firstNames = {"Adam", "Alex", "Aaron", "Ben", "Carl", "Dan", "David", "Edward",
                                  "Fred", "Frank", "George", "Hal", "Hank", "Ike", "John", "Jack",
@@ -53,7 +55,7 @@ void GenerateUsers(vector<User> &users) {
 
 int main() {
     vector<User> users;
-    GenerateUsers(users);
+    generateUsers(users);
     Director &dir = (Director &) (users.at(0));
     Admin &admin = (Admin &) (users.at(1));
     Professor &prof = (Professor &) (users.at(6));
@@ -61,8 +63,8 @@ int main() {
     DirectorCabinet directorCabinet = DirectorCabinet(1, red, dir);
     Cabinet cabinet = Cabinet(3, yellow, prof);
     LectureRoom lectureRoom = LectureRoom(100, green, true);
-    ClassRoom classRoom = ClassRoom(42,green,true);
-    ConferenceRoom conferenceRoom = ConferenceRoom(13,red,7);
+    ClassRoom classRoom = ClassRoom(42, green, true);
+    ConferenceRoom conferenceRoom = ConferenceRoom(13, red, 7);
 
     const int someStudentId = 21;
 
@@ -79,9 +81,9 @@ int main() {
      * */
     voiceOverAccess(prof, cabinet); //
 
-    voiceOverAccess(dir,lectureRoom); // //red-access person have access to any room
-    voiceOverAccess(dir,classRoom);
-    voiceOverAccess(dir,cabinet);
-    voiceOverAccess(dir,conferenceRoom);
+    voiceOverAccess(dir, lectureRoom); // //red-access person have access to any room
+    voiceOverAccess(dir, classRoom);
+    voiceOverAccess(dir, cabinet);
+    voiceOverAccess(dir, conferenceRoom);
 }
 
