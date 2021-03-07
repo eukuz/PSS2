@@ -11,9 +11,9 @@
 
 class Cabinet: public Room {
 public:
-    Professor professor;
+    Professor& professor;
 
-    Cabinet(int amountOfPlaces, access accessLvl, const Professor &professor);
+    Cabinet(int amountOfPlaces, access accessLvl, Professor &professor);
 };
 
 

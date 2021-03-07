@@ -1,16 +1,87 @@
 using namespace std;
+
 #include <iostream>
+#include <vector>
 #include "Users/User.h"
 #include "Rooms/LectureRoom.h"
+#include "Users/Director.h"
+#include "Users/Admin.h"
+#include "Users/Professor.h"
+#include "Users/LabEmployee.h"
+#include "Users/Student.h"
+#include "Rooms/DirectorCabinet.h"
+#include "Rooms/Cabinet.h"
+#include "Rooms/ClassRoom.h"
+#include "Rooms/ConferenceRoom.h"
+
+void voiceOverAccess(User user, Room room) {
+    cout << user.firstName + " " + user.lastName + (user.TryEnter(room) ? " Enters room" : " Cannot enter room")
+            + " " + to_string(room.getNumber()) + "\n";
+}
+
+void GenerateUsers(vector<User> &users) {
+
+    vector<string> firstNames = {"Adam", "Alex", "Aaron", "Ben", "Carl", "Dan", "David", "Edward",
+                                 "Fred", "Frank", "George", "Hal", "Hank", "Ike", "John", "Jack",
+                                 "Joe", "Larry", "Monte", "Matthew", "Mark", "Nathan", "Otto",
+                                 "Paul", "Peter", "Roger", "Roger", "Steve", "Thomas", "Tim",
+                                 "Ty", "Victor", "Walter"};
+
+    vector<string> lastNames = {"Anderson", "Ashwoon", "Aikin", "Bateman", "Bongard", "Bowers", "Boyd",
+                                "Cannon", "Cast", "Deitz", "Dewalt", "Ebner", "Frick", "Hancock", "Haworth",
+                                "Hesch", "Hoffman", "Kassing", "Knutson", "Lawless", "Lawicki", "Mccord",
+                                "McCormack", "Miller", "Myers", "Nugent", "Ortiz", "Orwig"};
+    vector<string> Subjects = {"Maths", "PE", "Programming", "CTF", "AI", "Robotics", "English", "Philosophy"};;
+
+    for (int i = 0; i < 31; i++) {
+        string fName = firstNames[rand() % firstNames.size()];
+        string lName = firstNames[rand() % lastNames.size()];
+        if (i < 1) {
+            users.push_back(Director(fName, lName, red, firstNames[rand() % firstNames.size()]));
+        } else if (i < 3) {
+            users.push_back(Admin(fName, lName, red, rand() % 2));
+        } else if (i < 7) {
+            users.push_back(Professor(fName, lName, yellow, rand(), Subjects[rand() % Subjects.size()]));
+        } else if (i < 15) {
+            users.push_back(LabEmployee(fName, lName, yellow, Subjects[rand() % Subjects.size()], rand() % 42));
+        } else {
+            users.push_back(Student(fName, lName, green, rand() % 4, rand() % 5, rand() % 30000));
+        }
+    }
+
+}
 
 int main() {
-    User a = User("a","b",green);
-    Room r = Room(1,green);
-    LectureRoom rr = LectureRoom(1,green, true);
-    LectureRoom r3 = LectureRoom(1,yellow, true);
-    cout<<r3.getNumber();
-    cout<<a.TryEnter(rr);
-    cout<<a.TryEnter(r3);
+    vector<User> users;
+    GenerateUsers(users);
+    Director &dir = (Director &) (users.at(0));
+    Admin &admin = (Admin &) (users.at(1));
+    Professor &prof = (Professor &) (users.at(6));
 
-    return 0;
+    DirectorCabinet directorCabinet = DirectorCabinet(1, red, dir);
+    Cabinet cabinet = Cabinet(3, yellow, prof);
+    LectureRoom lectureRoom = LectureRoom(100, green, true);
+    ClassRoom classRoom = ClassRoom(42,green,true);
+    ConferenceRoom conferenceRoom = ConferenceRoom(13,red,7);
+
+    const int someStudentId = 21;
+
+    voiceOverAccess(users.at(someStudentId), lectureRoom); //green-access person can enter green-access room
+    voiceOverAccess(users.at(someStudentId), cabinet); //green-access person cannot enter yellow-access room
+    voiceOverAccess(users.at(someStudentId), directorCabinet); //green-access person cannot enter red-access room
+    admin.SetAcces(users.at(someStudentId), red); //admin changes access of the student
+    voiceOverAccess(users.at(someStudentId), directorCabinet);
+
+    voiceOverAccess(prof, cabinet);
+    admin.SetAcces(prof, no_level); //admin changes access of the prof.
+    /*
+     * the prof cannot enter the cabinet although they assigned to it profs are not owners of the university property
+     * */
+    voiceOverAccess(prof, cabinet); //
+
+    voiceOverAccess(dir,lectureRoom); // //red-access person have access to any room
+    voiceOverAccess(dir,classRoom);
+    voiceOverAccess(dir,cabinet);
+    voiceOverAccess(dir,conferenceRoom);
 }
+

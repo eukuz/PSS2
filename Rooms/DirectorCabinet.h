@@ -11,10 +11,10 @@
 
 class DirectorCabinet: public Room {
 public:
-    DirectorCabinet(int amountOfPlaces, access accessLvl, const Director &director);
+    DirectorCabinet(int amountOfPlaces, access accessLvl, Director &director);
 
 private:
-    Director director;
+    Director& director;
 };
 
 
