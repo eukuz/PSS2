@@ -24,4 +24,12 @@ All users have some level of access, they are:
 3. yellow - users with this type of access can enter rooms with green and yellow types of access
 4. red  - users with this type of access can enter rooms with any type of accesses (green, yellow and red) 
 
+#### generateUsers
+This function receives a vector of Users and fills it with random testing data 
+(following requirements provided in th task)
 
+#### voiceOverAccess
+The function receives a User and a Room instances and outputs the try of the user to enter the room to the console
+
+#### main
+The function needed only for testing of the system
