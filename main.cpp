@@ -33,7 +33,7 @@ generateUsers(vector<User> &users) { // auxiliary function for generating a list
                                 "Cannon", "Cast", "Deitz", "Dewalt", "Ebner", "Frick", "Hancock", "Haworth",
                                 "Hesch", "Hoffman", "Kassing", "Knutson", "Lawless", "Lawicki", "Mccord",
                                 "McCormack", "Miller", "Myers", "Nugent", "Ortiz", "Orwig"};
-    vector<string> Subjects = {"Maths", "PE", "Programming", "CTF", "AI", "Robotics", "English", "Philosophy"};;
+    vector<string> Subjects = {"Maths", "PE", "Programming", "CTF", "AI", "Robotics", "English", "Philosophy"};
 
     for (int i = 0; i < 31; i++) {
         string fName = firstNames[rand() % firstNames.size()];
@@ -54,27 +54,29 @@ generateUsers(vector<User> &users) { // auxiliary function for generating a list
 }
 
 int main() {
+    //Let's make some users
     vector<User> users;
     generateUsers(users);
     Director &dir = (Director &) (users.at(0));
     Admin &admin = (Admin &) (users.at(1));
     Professor &prof = (Professor &) (users.at(6));
+    Student &student = (Student &) users.at(21);
 
+
+    //Let's make some rooms
     DirectorCabinet directorCabinet = DirectorCabinet(1, red, dir);
     Cabinet cabinet = Cabinet(3, yellow, prof);
     LectureRoom lectureRoom = LectureRoom(100, green, true);
     ClassRoom classRoom = ClassRoom(42, green, true);
     ConferenceRoom conferenceRoom = ConferenceRoom(13, red, 7);
 
-    const int someStudentId = 21;
+    voiceOverAccess(student, lectureRoom); //green-access person can enter green-access room
+    voiceOverAccess(student, cabinet); //green-access person cannot enter yellow-access room
+    voiceOverAccess(student, directorCabinet); //green-access person cannot enter red-access room
+    admin.SetAcces(student, red); //admin changes access of the student
+    voiceOverAccess(student, directorCabinet); //now they can enter red-access room
 
-    voiceOverAccess(users.at(someStudentId), lectureRoom); //green-access person can enter green-access room
-    voiceOverAccess(users.at(someStudentId), cabinet); //green-access person cannot enter yellow-access room
-    voiceOverAccess(users.at(someStudentId), directorCabinet); //green-access person cannot enter red-access room
-    admin.SetAcces(users.at(someStudentId), red); //admin changes access of the student
-    voiceOverAccess(users.at(someStudentId), directorCabinet);
-
-    voiceOverAccess(prof, cabinet);
+    voiceOverAccess(prof, cabinet);//a professor with yellow access can enter yellow-accessed room
     admin.SetAcces(prof, no_level); //admin changes access of the prof.
     /*
      * the prof cannot enter the cabinet although they assigned to it profs are not owners of the university property

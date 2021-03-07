@@ -16,7 +16,7 @@ public:
     string lastName;
     access accessType;
     User(const string &firstName, const string &lastName, access accessType);
-    bool TryEnter(Room room);
+    bool TryEnter(Room room); //if the user's access level allows, return true otherwise false
 };
 
 

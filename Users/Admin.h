@@ -11,7 +11,7 @@
 class Admin: public User {
 public:
     bool lovesLinux;
-    void SetAcces(User &u, access accessType);
+    void SetAcces(User &u, access accessType); //set a given access-level to a given user
     Admin(const string &firstName, const string &lastName, access accessType, bool lovesLinux);
 };
 
