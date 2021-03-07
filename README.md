@@ -11,6 +11,8 @@
 
 #### How does it work?
 
+The main idea is to simulate a system in which some users try to access some rooms
+
 The app consists of the main, generateUsers, voiceOverAccess functions, one enum (access) and two trees of classes that are:
 1.(LectureRoom, DirectorCabinet, ConferenceRoom, ClassRoom, Cabinet) share same parent class Room
 2.(Student, Professor, LabEmployee, Director, Admin) share same parent class User
