@@ -6,4 +6,5 @@
 
 Professor::Professor(const string &firstName, const string &lastName, access accessType, int favouriteNumber,
                      const string &subject) : User(firstName, lastName, accessType), favouriteNumber(favouriteNumber),
-                                              subject(subject) {}
+                                              subject(subject) {    User::users.push_back(this);
+}

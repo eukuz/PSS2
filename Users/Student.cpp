@@ -7,4 +7,5 @@
 
 Student::Student(const string &firstName, const string &lastName, access accessType, int yearOfEducation, int group,
                  double scholarship) : User(firstName, lastName, accessType), yearOfEducation(yearOfEducation),
-                                       group(group), scholarship(scholarship) {}
+                                       group(group), scholarship(scholarship) {    User::users.push_back(this);
+}

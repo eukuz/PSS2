@@ -3,6 +3,8 @@
 //
 
 #include "Admin.h"
+#include "../Rooms/Room.h"
+
 
 Admin::Admin(const string &firstName, const string &lastName, access accessType, bool lovesLinux) : User(firstName,
                                                                                                          lastName,
@@ -10,7 +12,17 @@ Admin::Admin(const string &firstName, const string &lastName, access accessType,
                                                                                                     lovesLinux(
                                                                                                             lovesLinux) {}
 
-void Admin::SetAcces(User &u, access accessType) {
-u.accessType =accessType;
+void Admin::SetAccess(User *u, access accessType) {
+u->accessType =accessType;
+    u->myRooms.clear();
+for(Room* room: Room::rooms){
+        if(u->accessType>=room->accessLvl)
+            u->myRooms.push_back(room->getNumber());
+    }
 }
+
+void Admin::GiveAccess(User *u, int r) {
+    u->myRooms.push_back(r);
+}
+
 

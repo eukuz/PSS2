@@ -5,4 +5,6 @@
 #include "Director.h"
 
 Director::Director(const string &firstName, const string &lastName, access accessType, const string &petName) : User(
-        firstName, lastName, accessType), petName(petName) {}
+        firstName, lastName, accessType), petName(petName) {
+    User::users.push_back(this);
+}

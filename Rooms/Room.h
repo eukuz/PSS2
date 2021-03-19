@@ -5,7 +5,9 @@
 #ifndef HW2_ROOM_H
 #define HW2_ROOM_H
 #include <string>
+#include <vector>
 #include "../access.h"
+
 using namespace std;
 
 class Room {
@@ -14,6 +16,7 @@ private:
 
 public:
     static int roomNumberIncrement;
+    static vector<Room*> rooms;
     int amountOfPlaces;
     access accessLvl;
     int getNumber();

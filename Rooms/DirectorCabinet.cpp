@@ -4,5 +4,5 @@
 
 #include "DirectorCabinet.h"
 
-DirectorCabinet::DirectorCabinet(int amountOfPlaces,  access accessLvl,  Director &director) : Room(
+DirectorCabinet::DirectorCabinet(int amountOfPlaces,  access accessLvl,  Director *director) : Room(
         amountOfPlaces, accessLvl), director(director) {}
