@@ -9,12 +9,14 @@
 #include "Room.h"
 #include "../Users/Director.h"
 
-class DirectorCabinet: public Room {
+class DirectorCabinet : public Room {
 public:
-    DirectorCabinet(int amountOfPlaces, access accessLvl, Director *director);
+    DirectorCabinet(int amountOfPlaces, int floor, access accessLvl, Director *director);
 
 private:
-    Director* director;
+    void doNothing() override;
+
+    Director *director;
 };
 
 

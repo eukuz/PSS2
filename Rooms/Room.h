@@ -14,13 +14,18 @@ class Room {
 private:
     int roomNumber;
 
+    virtual void doNothing();
+
 public:
     static int roomNumberIncrement;
-    static vector<Room*> rooms;
+    static vector<Room *> rooms;
     int amountOfPlaces;
+    int floor;
     access accessLvl;
+
     int getNumber();
-    Room(int amountOfPlaces, access accessLvl);
+
+    Room(int amountOfPlaces, int floor, access accessLvl);
 
 };
 

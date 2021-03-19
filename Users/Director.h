@@ -13,7 +13,7 @@ class Director: public User {
 public:
     string petName;
 
-    Director(const string &firstName, const string &lastName, access accessType, const string &petName);
+    Director(const string &firstName, const string &lastName, string petName);
 };
 
 

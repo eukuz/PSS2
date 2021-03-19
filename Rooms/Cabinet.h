@@ -9,11 +9,14 @@
 #include "Room.h"
 #include "../Users/Professor.h"
 
-class Cabinet: public Room {
-public:
-    Professor* professor;
+class Cabinet : public Room {
+private:
+    void doNothing() override;
 
-    Cabinet(int amountOfPlaces, access accessLvl, Professor *professor);
+public:
+    Professor *professor;
+
+    Cabinet(int amountOfPlaces, int floor, access accessLvl, Professor *professor);
 };
 
 

@@ -4,5 +4,8 @@
 
 #include "LectureRoom.h"
 
-LectureRoom::LectureRoom(int amountOfPlaces, access accessLvl, bool isThereAFireExit) : Room(
-        amountOfPlaces,  accessLvl), isThereAFireExit(isThereAFireExit) {}
+LectureRoom::LectureRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAFireExit) : Room(
+        amountOfPlaces, floor, accessLvl), isThereAFireExit(isThereAFireExit) {}
+
+void LectureRoom::doNothing() {
+}

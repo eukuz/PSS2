@@ -4,5 +4,9 @@
 
 #include "Cabinet.h"
 
-Cabinet::Cabinet(int amountOfPlaces,  access accessLvl,  Professor *professor) : Room(
-        amountOfPlaces,  accessLvl), professor(professor) {}
+Cabinet::Cabinet(int amountOfPlaces, int floor, access accessLvl, Professor *professor) : Room(
+        amountOfPlaces, floor, accessLvl), professor(professor) {}
+
+void Cabinet::doNothing() {
+
+}

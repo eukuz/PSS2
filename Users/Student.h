@@ -15,7 +15,7 @@ public:
     int group;
     double scholarship;
 
-    Student(const string &firstName, const string &lastName, access accessType, int yearOfEducation, int group,
+    Student(const string &firstName, const string &lastName, int yearOfEducation, int group,
             double scholarship);
 
 

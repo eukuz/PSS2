@@ -8,11 +8,13 @@
 
 #include "Room.h"
 
-class ClassRoom: public Room {
-public:
-    ClassRoom(int amountOfPlaces, access accessLvl, bool isThereAProjector);
+class ClassRoom : public Room {
+private:
+    void doNothing() override;
 
 public:
+    ClassRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAProjector);
+
     bool isThereAProjector;
 
 };

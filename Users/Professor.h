@@ -10,8 +10,8 @@
 
 class Professor : public User {
 public:
-    Professor(const string &firstName, const string &lastName, access accessType, int favouriteNumber,
-              const string &subject);
+    Professor(const string &firstName, const string &lastName, int favouriteNumber,
+              string subject);
 
     int favouriteNumber;
     string subject;

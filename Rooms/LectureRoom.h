@@ -8,11 +8,16 @@
 
 #include "Room.h"
 
-class LectureRoom: public Room {
-    public:
+class LectureRoom : public Room {
+private:
+    void doNothing() override;
+
+
+public:
     bool isThereAFireExit;
 
-    LectureRoom(int amountOfPlaces, access accessLvl, bool isThereAFireExit);
+
+    LectureRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAFireExit);
 };
 
 

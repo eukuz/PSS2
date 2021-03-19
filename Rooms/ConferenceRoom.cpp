@@ -4,5 +4,9 @@
 
 #include "ConferenceRoom.h"
 
-ConferenceRoom::ConferenceRoom(int amountOfPlaces, access accessLvl, int numberOfMicrophones) : Room(
-        amountOfPlaces,  accessLvl), numberOfMicrophones(numberOfMicrophones) {}
+ConferenceRoom::ConferenceRoom(int amountOfPlaces, int floor, access accessLvl, int numberOfMicrophones) : Room(
+        amountOfPlaces, floor, accessLvl), numberOfMicrophones(numberOfMicrophones) {}
+
+void ConferenceRoom::doNothing() {
+
+}

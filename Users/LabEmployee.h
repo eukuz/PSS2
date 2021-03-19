@@ -13,7 +13,7 @@ public:
     string LabName;
     int yearsOfExperience;
 
-    LabEmployee(const string &firstName, const string &lastName, access accessType, const string &labName,
+    LabEmployee(const string &firstName, const string &lastName, string labName,
                 int yearsOfExperience);
 };
 

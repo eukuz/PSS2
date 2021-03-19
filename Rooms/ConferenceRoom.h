@@ -8,11 +8,14 @@
 
 #include "Room.h"
 
-class ConferenceRoom: public Room {
+class ConferenceRoom : public Room {
+private:
+    void doNothing() override;
+
 public:
     int numberOfMicrophones;
 
-    ConferenceRoom(int amountOfPlaces, access accessLvl, int numberOfMicrophones);
+    ConferenceRoom(int amountOfPlaces, int floor, access accessLvl, int numberOfMicrophones);
 
 };
 

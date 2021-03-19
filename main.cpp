@@ -9,14 +9,17 @@ using namespace std;
 #include "Users/Professor.h"
 #include "Users/LabEmployee.h"
 #include "Users/Student.h"
+#include "Users/Guest.h"
 #include "Rooms/DirectorCabinet.h"
 #include "Rooms/Cabinet.h"
 #include "Rooms/ClassRoom.h"
 #include "Rooms/ConferenceRoom.h"
 
 void
-voiceOverAccess(User* user, Room room) { // auxiliary function that outputs the TryEnter feature in the convenient format
-    cout << user->firstName + " " + user->lastName + (user->TryEnter(room.getNumber()) ? " Enters room" : " Cannot enter room")
+voiceOverAccess(User *user,
+                Room room) { // auxiliary function that outputs the TryEnter feature in the convenient format
+    cout << user->firstName + " " + user->lastName +
+            (user->TryEnter(room.getNumber()) ? " Enters room" : " Cannot enter room")
             + " " + to_string(room.getNumber()) + "\n";
 }
 
@@ -41,16 +44,16 @@ generateUsers() { // auxiliary function for generating a list of users due to th
         string fName = firstNames[rand() % firstNames.size()];
         string lName = firstNames[rand() % lastNames.size()];
 //        cout<<fName<<" "<<lName<<" CREATED!! \n";
-        if (i<1) {
-            new Director(fName, lName, red, firstNames[rand() % firstNames.size()]);
+        if (i < 1) {
+            new Director(fName, lName, firstNames[rand() % firstNames.size()]);
         } else if (i < 3) {
-            new Admin(fName, lName, red, rand() % 2);
+            new Admin(fName, lName, rand() % 2);
         } else if (i < 7) {
-            new Professor(fName, lName, yellow, rand(), Subjects[rand() % Subjects.size()]);
+            new Professor(fName, lName, rand(), Subjects[rand() % Subjects.size()]);
         } else if (i < 15) {
-            new LabEmployee(fName, lName, yellow, Subjects[rand() % Subjects.size()], rand() % 42);
+            new LabEmployee(fName, lName, Subjects[rand() % Subjects.size()], rand() % 42);
         } else {
-            new Student(fName, lName, green, rand() % 4, rand() % 5, rand() % 30000);
+            new Student(fName, lName, rand() % 4, rand() % 5, rand() % 30000);
         }
     }
 
@@ -61,26 +64,27 @@ int main() {
 //    vector<User> users;
     generateUsers();
 
-//    User::print();
+//    User::Print();
 
 
     Director *dir = (Director *) (User::users.at(0));
     Admin *admin = (Admin *) (User::users.at(1));
     Professor *prof = (Professor *) (User::users.at(6));
-    Student *student = (Student*)User::users.at(21);
+    Student *student = (Student *) User::users.at(21);
     //Let's make some rooms
 
-    DirectorCabinet directorCabinet = DirectorCabinet(1, red, dir);
-    Cabinet cabinet = Cabinet(3, yellow, prof);
-    LectureRoom lectureRoom = LectureRoom(100, green, true);
-    ClassRoom classRoom = ClassRoom(42, green, true);
-    ConferenceRoom conferenceRoom = ConferenceRoom(13, red, 7);
+    DirectorCabinet directorCabinet = DirectorCabinet(1, 4, red, dir);
+    Cabinet cabinet = Cabinet(3, 4, yellow, prof);
+    LectureRoom lectureRoom = LectureRoom(100, 1, green, true);
+    ClassRoom classRoom = ClassRoom(42, 3, green, true);
+    ConferenceRoom conferenceRoom = ConferenceRoom(13, 2, red, 7);
+    ConferenceRoom conferenceRoom1f = ConferenceRoom(13, 1, green, 7);
 
     voiceOverAccess(student, lectureRoom); //green-access person can enter green-access room
     voiceOverAccess(student, cabinet); //green-access person cannot enter yellow-access room
     voiceOverAccess(student, directorCabinet); //green-access person cannot enter red-access room
 
-    admin->GiveAccess(student,cabinet.getNumber());//admin can give access for any user to any room
+    admin->GiveAccess(student, cabinet.getNumber());//admin can give access for any user to any room
     voiceOverAccess(student, cabinet); //now green-access+ person can enter yellow-access room
 
     admin->SetAccess(student, red); //admin changes access of the student
@@ -97,6 +101,14 @@ int main() {
     voiceOverAccess(dir, classRoom);
     voiceOverAccess(dir, cabinet);
     voiceOverAccess(dir, conferenceRoom);
+
+    Guest *guest = new Guest("Just", "Guest", 42); // a guest w/ blue-access lvl
+    voiceOverAccess(guest, lectureRoom);
+    voiceOverAccess(guest, conferenceRoom1f);
+    // blue-access person have access only for conference and lecture rooms of 1st floor
+    voiceOverAccess(guest, classRoom);
+    voiceOverAccess(guest, cabinet);
+    voiceOverAccess(guest, conferenceRoom);
 
 
 }
