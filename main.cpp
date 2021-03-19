@@ -109,6 +109,18 @@ int main() {
     voiceOverAccess(guest, classRoom);
     voiceOverAccess(guest, cabinet);
     voiceOverAccess(guest, conferenceRoom);
+    voiceOverAccess(guest, directorCabinet);
+
+    Room::state = emergency; //In case of an emergency, all rooms are opened - available for every-body.
+    voiceOverAccess(guest, directorCabinet);
+    voiceOverAccess(dir, directorCabinet);
+    voiceOverAccess(prof, directorCabinet);
+    voiceOverAccess(student, directorCabinet);
+
+    classRoom.Print(); //that's how rooms are outputted
+    cabinet.Print();
+    conferenceRoom.Print();
+    directorCabinet.Print();
 
 
 }

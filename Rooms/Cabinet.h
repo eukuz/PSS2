@@ -10,11 +10,10 @@
 #include "../Users/Professor.h"
 
 class Cabinet : public Room {
-private:
-    void doNothing() override;
-
 public:
     Professor *professor;
+
+    void Print() override;
 
     Cabinet(int amountOfPlaces, int floor, access accessLvl, Professor *professor);
 };

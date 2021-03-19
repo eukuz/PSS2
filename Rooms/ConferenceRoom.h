@@ -9,10 +9,9 @@
 #include "Room.h"
 
 class ConferenceRoom : public Room {
-private:
-    void doNothing() override;
-
 public:
+    void Print() override;
+
     int numberOfMicrophones;
 
     ConferenceRoom(int amountOfPlaces, int floor, access accessLvl, int numberOfMicrophones);

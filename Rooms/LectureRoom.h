@@ -9,11 +9,10 @@
 #include "Room.h"
 
 class LectureRoom : public Room {
-private:
-    void doNothing() override;
-
 
 public:
+    void Print() override;
+
     bool isThereAFireExit;
 
 

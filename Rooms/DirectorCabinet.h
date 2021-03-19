@@ -13,8 +13,7 @@ class DirectorCabinet : public Room {
 public:
     DirectorCabinet(int amountOfPlaces, int floor, access accessLvl, Director *director);
 
-private:
-    void doNothing() override;
+    void Print() override;
 
     Director *director;
 };

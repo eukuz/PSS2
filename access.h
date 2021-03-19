@@ -5,7 +5,7 @@
 #ifndef HW2_ACCESS_H
 #define HW2_ACCESS_H
 enum access {
-    no_level = -1, blue = 0, green = 1, yellow = 2, red = 3
+    no_level, blue, green, yellow, red
 };
 
 #endif //HW2_ACCESS_H

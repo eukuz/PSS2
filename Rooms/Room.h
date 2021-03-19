@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include "../access.h"
+#include "../systemState.h"
 
 using namespace std;
 
@@ -14,9 +15,11 @@ class Room {
 private:
     int roomNumber;
 
-    virtual void doNothing();
 
 public:
+    virtual void Print();
+
+    inline static systemState state = normal;
     static int roomNumberIncrement;
     static vector<Room *> rooms;
     int amountOfPlaces;

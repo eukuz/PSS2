@@ -32,6 +32,7 @@ User::User(string firstName, string lastName, access accessType) : firstName(std
 }
 
 bool User::TryEnter(int roomNumber) {
+    if (Room::state == emergency) return true;
     for (int roomN:this->myRooms) {
         if (roomNumber == roomN)
             return true;

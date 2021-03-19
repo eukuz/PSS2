@@ -7,6 +7,8 @@
 Cabinet::Cabinet(int amountOfPlaces, int floor, access accessLvl, Professor *professor) : Room(
         amountOfPlaces, floor, accessLvl), professor(professor) {}
 
-void Cabinet::doNothing() {
-
+void Cabinet::Print() {
+    cout << "Cabinet ";
+    Room::Print();
 }
+

@@ -9,10 +9,10 @@
 #include "Room.h"
 
 class ClassRoom : public Room {
-private:
-    void doNothing() override;
-
 public:
+
+    void Print() override;
+
     ClassRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAProjector);
 
     bool isThereAProjector;

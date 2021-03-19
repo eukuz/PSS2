@@ -9,9 +9,8 @@
 
 using namespace std;
 
-class User;
-
 int Room::roomNumberIncrement = 0;
+//systemState state = normal;
 vector<Room *> Room::rooms;
 
 Room::Room(int amountOfPlaces, int floor, access accessLvl) : amountOfPlaces(amountOfPlaces),
@@ -36,6 +35,10 @@ int Room::getNumber() {
     return roomNumber;
 }
 
-void Room::doNothing() {
-//Todo Change this method to some print-output
+void Room::Print() {
+    static const char *access[] =
+            {"no level", "blue", "green", "yellow", "red"};
+    cout << "#" << this->getNumber() <<
+         " floor: " << this->floor << " access level: " << access[this->accessLvl]
+         << " places:" << this->amountOfPlaces << endl;
 }
