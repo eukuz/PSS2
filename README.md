@@ -18,7 +18,7 @@ are:
 2. (Student, Professor, LabEmployee, Director, Admin) share same parent class User
 
 please have a look at the UML class diagram (made with Bouml)
-![UML](https://github.com/eukuz/PSS2HW2/blob/HW3/ClassDiagram.png "UML")
+![UML](https://github.com/eukuz/PSS2HW2/blob/HW3/ClassDiagram.png "Class Diagram")
 
 All users have some level of access, they are:
 
