@@ -1,22 +1,20 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#ifndef HW2_PROFESSOR_H
-#define HW2_PROFESSOR_H
+#ifndef _PROFESSOR_H
+#define _PROFESSOR_H
 
 
 #include "User.h"
+#include <string>
+
+using namespace std;
 
 class Professor : public User {
 public:
-    Professor(const string &firstName, const string &lastName, int favouriteNumber,
-              string subject);
+    Professor(const string &firstName, const string &lastName, int favouriteNumber, string subject);
 
     int favouriteNumber;
+
     string subject;
 
 };
 
-
-#endif //HW2_PROFESSOR_H
+#endif

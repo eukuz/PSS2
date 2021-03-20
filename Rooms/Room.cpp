@@ -10,7 +10,7 @@
 using namespace std;
 
 int Room::roomNumberIncrement = 0;
-//systemState state = normal;
+systemState Room::state = normal;
 vector<Room *> Room::rooms;
 
 Room::Room(int amountOfPlaces, int floor, access accessLvl) : amountOfPlaces(amountOfPlaces),
@@ -26,7 +26,7 @@ Room::Room(int amountOfPlaces, int floor, access accessLvl) : amountOfPlaces(amo
     for (User *user: User::users)
         if (user->accessType >= this->accessLvl) {
             if (user->accessType != blue || isOKforBlue)
-                user->myRooms.push_back(this->getNumber());
+                user->myRooms.push_back(this);
         }
 
 }

@@ -1,13 +1,10 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#ifndef HW2_DIRECTORCABINET_H
-#define HW2_DIRECTORCABINET_H
+#ifndef _DIRECTORCABINET_H
+#define _DIRECTORCABINET_H
 
 
 #include "Room.h"
-#include "../Users/Director.h"
+
+class Director;
 
 class DirectorCabinet : public Room {
 public:
@@ -16,7 +13,7 @@ public:
     void Print() override;
 
     Director *director;
+
 };
 
-
-#endif //HW2_DIRECTORCABINET_H
+#endif

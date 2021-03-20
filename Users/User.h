@@ -1,32 +1,35 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#include <string>
-#include "../access.h"
-#include <vector>
-#include "iostream"
+#ifndef _USER_H
+#define _USER_H
 
 using namespace std;
 
-#ifndef HW2_USER_H
-#define HW2_USER_H
+#include <vector>
+#include <string>
+#include "../access.h"
 
+class Room;
 
 class User {
 public:
     static vector<User *> users;
+
     string firstName;
+
     string lastName;
+
     access accessType;
-    vector<int> myRooms;
+
+    vector<Room *> myRooms;
 
     static void Print();
 
     User(string firstName, string lastName, access accessType);
 
-    bool TryEnter(int roomNumber); //if the user's access level allows, return true otherwise false
+    bool TryEnter(Room *room); //
+
+    //if the user's access level allows, return true otherwise false
+    void voiceOverAccess(Room *room);
+
 };
 
-
-#endif //HW2_USER_H
+#endif

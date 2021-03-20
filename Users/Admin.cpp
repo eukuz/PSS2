@@ -17,11 +17,13 @@ void Admin::SetAccess(User *u, access accessType) {
     u->myRooms.clear();
     for (Room *room: Room::rooms) {
         if (u->accessType >= room->accessLvl)
-            u->myRooms.push_back(room->getNumber());
+            u->myRooms.push_back(room);
     }
+
 }
 
-void Admin::GiveAccess(User *u, int r) {
+void Admin::GiveAccess(User *u, Room *r) {
+    for (Room *room:myRooms) if (r == room) return;
     u->myRooms.push_back(r);
 }
 
