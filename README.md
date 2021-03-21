@@ -1,5 +1,5 @@
 # Introduction to Programming 2
-## Assignment #2
+## Assignment #3
 ### Eugene Kuzyakhmetov
 
 #### How to set up?
