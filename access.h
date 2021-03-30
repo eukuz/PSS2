@@ -1,9 +1,12 @@
-//
-// Created by Eugene on 3/5/2021.
-//
+#ifndef _ACCESS_H
+#define _ACCESS_H
 
-#ifndef HW2_ACCESS_H
-#define HW2_ACCESS_H
-enum access {  no_level, green, yellow, red};
 
-#endif //HW2_ACCESS_H
+enum access {
+    no_level,
+    blue,
+    green,
+    yellow,
+    red
+};
+#endif

@@ -1,20 +1,18 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#ifndef HW2_DIRECTOR_H
-#define HW2_DIRECTOR_H
+#ifndef _DIRECTOR_H
+#define _DIRECTOR_H
 
 
 #include "User.h"
+#include <string>
 
-class Director: public User {
+using namespace std;
 
+class Director : public User {
 public:
     string petName;
 
-    Director(const string &firstName, const string &lastName, access accessType, const string &petName);
+    Director(const string &firstName, const string &lastName, string petName);
+
 };
 
-
-#endif //HW2_DIRECTOR_H
+#endif

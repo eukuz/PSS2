@@ -1,8 +1,9 @@
-//
-// Created by Eugene on 3/5/2021.
-//
 
 #include "Director.h"
 
-Director::Director(const string &firstName, const string &lastName, access accessType, const string &petName) : User(
-        firstName, lastName, accessType), petName(petName) {}
+Director::Director(const string &firstName, const string &lastName, string petName) : User(
+        firstName, lastName, red), petName(std::move(petName)) {
+
+    User::users.push_back(this);
+}
+

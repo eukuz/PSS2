@@ -1,7 +1,13 @@
-//
-// Created by Eugene on 3/5/2021.
-//
 
 #include "ClassRoom.h"
-ClassRoom::ClassRoom(int amountOfPlaces, access accessLvl, bool isThereAProjector) : Room(
-        amountOfPlaces, accessLvl), isThereAProjector(isThereAProjector) {}
+
+void ClassRoom::Print() {
+
+    cout << "Class room ";
+    Room::Print();
+}
+
+ClassRoom::ClassRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAProjector) : Room(
+        amountOfPlaces, floor, accessLvl), isThereAProjector(isThereAProjector) {
+}
+

@@ -1,19 +1,26 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#ifndef HW2_ADMIN_H
-#define HW2_ADMIN_H
+#ifndef _ADMIN_H
+#define _ADMIN_H
 
 
 #include "User.h"
+#include <string>
 
-class Admin: public User {
+using namespace std;
+
+class Room;
+
+class Admin : public User {
 public:
     bool lovesLinux;
-    void SetAcces(User &u, access accessType); //set a given access-level to a given user
-    Admin(const string &firstName, const string &lastName, access accessType, bool lovesLinux);
+
+    void GiveAccess(User *u, Room *r);
+
+    //give any user access to any room
+    void SetAccess(User *u, access accessType);
+
+    //set an access-level to a user, this will reset all additionally given accesses
+    Admin(const string &firstName, const string &lastName, bool lovesLinux);
+
 };
 
-
-#endif //HW2_ADMIN_H
+#endif

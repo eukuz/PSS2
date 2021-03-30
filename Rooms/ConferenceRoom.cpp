@@ -1,8 +1,13 @@
-//
-// Created by Eugene on 3/5/2021.
-//
 
 #include "ConferenceRoom.h"
 
-ConferenceRoom::ConferenceRoom(int amountOfPlaces, access accessLvl, int numberOfMicrophones) : Room(
-        amountOfPlaces,  accessLvl), numberOfMicrophones(numberOfMicrophones) {}
+void ConferenceRoom::Print() {
+
+    cout << "Conference room ";
+    Room::Print();
+}
+
+ConferenceRoom::ConferenceRoom(int amountOfPlaces, int floor, access accessLvl, int numberOfMicrophones) : Room(
+        amountOfPlaces, floor, accessLvl), numberOfMicrophones(numberOfMicrophones) {
+}
+

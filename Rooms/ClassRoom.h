@@ -1,23 +1,17 @@
-//
-// Created by Eugene on 3/5/2021.
-//
-
-#ifndef HW2_CLASSROOM_H
-#define HW2_CLASSROOM_H
+#ifndef _CLASSROOM_H
+#define _CLASSROOM_H
 
 
 #include "Room.h"
 
-class ClassRoom: public Room {
+class ClassRoom : public Room {
 public:
-    ClassRoom(int amountOfPlaces, access accessLvl, bool isThereAProjector);
+    void Print() override;
 
-public:
+    ClassRoom(int amountOfPlaces, int floor, access accessLvl, bool isThereAProjector);
+
     bool isThereAProjector;
 
 };
 
-
-#endif //HW2_CLASSROOM_H
-
-
+#endif
